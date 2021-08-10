@@ -29,11 +29,11 @@ p:hover{
 }
 .card1,.card3{
     background: rgba(24, 23, 23, 0.521);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+/*     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 }
 .card2,.card4{
     background: rgba(19, 18, 18, 0.747);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+/*     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
    
 }
 .belowNav{
@@ -52,7 +52,7 @@ p:hover{
 .cards:hover{
     transform: scale(1.05); 
     transition: 0.5s;
-   
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
  }
  .icon{
     color: skyblue;
