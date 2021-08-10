@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            overflow: hidden;
+            padding: 20px;
+            font-family: cursive;
+        }
+
+        .container {
+            /* background-color: black; */
+            background-color: #0cbaba;
+            background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%);
+
+            /* border-radius: 10px; */
+            box-shadow: 0 10px 20px 10px rgba(0, 0, 0, 0.5);
+            padding: 50px 20px;
+            text-align: center;
+            color: silver;
+            max-width: 100%;
+            width: 800px;
+        }
+
+        h3 {
+            margin: 0;
+            color: rgb(148, 141, 141);
+            letter-spacing: 1px;
+            text-transform: capitalize;
+            font-size: 30px;
+        }
+
+        .joke {
+            font-size: 20px;
+            letter-spacing: 1px;
+            line-height: 40px;
+            margin: 50px auto;
+            max-width: 600px;
+        }
+        .btn{
+            background-color: #f8b627;
+            color: #fff;
+            border: 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
+            padding: 12px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            outline: none;
+            font-family: cursive;
+            font-weight: bold;
+        }
+        .btn:hover{
+            color: black;
+            background: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>😂😍Best Jokes to make your day👻</h3>
+        <div id="joke" class="joke">Awesome joke is loading....</div>
+        <button id="jokeBtn" class="btn">Next Joke</button>
+    </div>
+
+
+    <script>
+        //GET https://icanhazdadjoke.com/
+        const jokes = document.querySelector('#joke');
+        const jokeBtn = document.querySelector('#jokeBtn');
+        //using fetch () API
+
+        // const generateJokes = () =>{
+            // const setHeader = {
+            //     headers: {
+            //         Accept:"application/json"
+            //     }
+            // }
+            // fetch('https://icanhazdadjoke.com',setHeader)
+            // .then((res)=> res.json() )       //converting the data in HTML format to JSON format 
+            // .then((data)=>{
+            //         jokes.innerHTML = data.joke;
+            // }).catch((error)=>{
+            //     console.log(error);
+            // })
+        // }
+
+
+        //using async await
+        const generateJokes = async() =>{
+            try{
+                const setHeader = {
+                headers: {
+                    Accept:"application/json"
+                }
+            }
+            const res = await fetch('https://icanhazdadjoke.com',setHeader);
+            const data = await res.json();         //converting HTML data to json format
+            jokes.innerHTML = data.joke;
+
+            }catch(err){
+                console.log(`The error is : ${err}`);
+            }       
+        }
+
+
+        jokeBtn.addEventListener('click',generateJokes);
+        generateJokes();
+    </script>
+</body>
+
+</html>

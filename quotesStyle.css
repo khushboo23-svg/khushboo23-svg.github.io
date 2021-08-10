@@ -1,0 +1,19 @@
+@import url('http://fonts.cdnfonts.com/css/glass-antiqua');
+@import url('http://fonts.cdnfonts.com/css/noto-mono');
+body{
+    background-color: black;
+    color: silver;
+}
+h1{
+    font-family: 'Glass Antiqua', sans-serif;                                                
+}
+.quote{
+    font-size: 30px;
+    font-family: 'Noto Mono', sans-serif;                                                     
+}
+.orange{
+    color: purple;
+    font-size: 20px;
+}
+
+                

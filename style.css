@@ -1,0 +1,109 @@
+@import url('http://fonts.cdnfonts.com/css/riesling');
+body{
+    background-color: black;
+    overflow-x: hidden;
+}
+video{
+    height: 400px;
+    width: 300px;
+}
+.container-fluid{
+    background-color: black;
+}
+.heading{
+    font-family: 'Riesling', sans-serif;   
+    font-size: 80px;    
+    font-weight:bold;     
+    color: rgb(148, 36, 148);     
+    
+}
+p{
+    font-size: 18px;
+    font-weight: lighter;
+    color: skyblue;
+    letter-spacing: 2px;
+}
+p:hover{
+    transition: 1s;
+    color: silver;
+}
+.card1,.card3{
+    background: rgba(24, 23, 23, 0.521);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.card2,.card4{
+    background: rgba(19, 18, 18, 0.747);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   
+}
+.belowNav{
+    background-color: #a4508b;
+    background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+    background-size: cover;
+    background-attachment: fixed; 
+}
+.belowNav .explore{
+    color: black;
+    text-decoration: underline;
+    font-family: 'Riesling', sans-serif; 
+    font-size: 50px;
+    font-weight: bold;
+}
+.cards:hover{
+    transform: scale(1.05); 
+    transition: 0.5s;
+   
+ }
+ .icon{
+    color: skyblue;
+ }
+ .iconColor{
+     color: rgb(148, 24, 148);
+ }
+ .icon:hover{
+    transform: rotate(360deg);
+    transition: 2s;
+    color: purple;
+ }
+.about{
+    background: url("test.jpg") center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.aboutbg{
+    background: rgba(1, 0, 0, 0.74);
+}
+.aboutme{
+    background: rgba(1, 0, 0, 0.89);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-right: 10px solid purple;
+    border-bottom: 10px solid purple;
+    border-top: 10px solid black;
+    border-left: 10px solid black;
+}
+.aboutme:hover{
+    transform: scale(1.05); 
+    transition: 1s ease-in-out;
+    border-right: 10px solid black;
+    border-bottom: 10px solid black;
+    border-top: 10px solid purple;
+    border-left: 10px solid purple;
+}
+.me:hover{
+    transform: rotate(360deg);
+    transition: 2s;
+    color: yellow;
+}
+.contact{
+    background: url("1.jpg") center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+}
+.contactform{
+    background: rgba(94, 34, 134, 0.61);
+}
+
+.footer{
+    font-size: 10px;
+}

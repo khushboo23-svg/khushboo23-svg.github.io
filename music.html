@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="musicStyle.css">
+    <title>Music Player</title>
+</head>
+<body>
+    <div class="main_div">
+        <div class="music_container">
+            <h2 id="title">Play Date</h2>
+            <h3 id="artist">Melanie Martinez</h3>
+            <div class="img_container">
+                <img src="PlayDate.jpg" alt="" >
+            </div>
+            <audio src="PlayDate.mp3" ></audio>
+
+            <div class="music_controls">
+                <i class="fas fa-backward" id="prev" title="Previous"></i>
+                <i class="fas fa-play play_button" id="play" title="Play"></i>
+                <i class="fas fa-forward" id="next" title="Next"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+
+        const music = document.querySelector('audio');
+        const img = document.querySelector('img');
+        const play = document.getElementById('play');
+        const title = document.getElementById('title');
+        const artist = document.getElementById('artist');
+        const prev = document.getElementById('prev');
+        const next = document.getElementById('next');
+
+        const songs = [
+        {
+            name: "PlayDate",
+            title: "PlayDate",
+            artist: "Melanie Martinez"
+        },
+        {
+            name: "lily",
+            title: "lily",
+            artist: "Alan Walker"
+        },
+        {
+            name: "Oh-Ho-Ho-Ho",
+            title: "Oh-Ho-Ho-Ho",
+            artist: "Irfan khan"
+        },
+        {
+            name: "Aa_To_Sahi",
+            title: "Aa_To_Sahi",
+            artist: "unknown"
+        },
+        {
+            name: "Bol_Do_Na_Zara",
+            title: "Bol_Do_Na_Zara",
+            artist: "unknown"
+        },
+        {
+            name: "Hath_Rakh_De",
+            title: "Hath_Rakh_De",
+            artist: "unknown"
+        },
+        {
+            name: "Jeene Laga Hoon",
+            title: "Jeene Laga Hoon",
+            artist: "unknown"
+        },
+        {
+            name: "Kabhi Alvida Na Kehna",
+            title: "Kabhi Alvida Na Kehna",
+            artist: "unknown"
+        },
+        {
+            name: "Tere Dar Par Sanam",
+            title: "Tere Dar Par Sanam",
+            artist: "unknown"
+        },
+    ]
+
+        let isPlaying = false;
+
+        const playMusic = ()=>{
+            isPlaying = true;
+            music.play();
+            play.classList.replace('fa-play','fa-pause');
+            img.classList.add("anime");
+        };
+        const pauseMusic = ()=>{
+            isPlaying = false;
+            music.pause();
+            play.classList.replace('fa-pause','fa-play');
+            img.classList.remove("anime");
+        };
+        play.addEventListener('click',()=>{
+            if(isPlaying){
+                pauseMusic();
+            }else{
+                playMusic();
+            }
+        });
+
+        // changing the music data
+
+        const loadSong = (songs) =>{
+            title.textContent = songs.title;
+            artist.textContent = songs.artist;
+            music.src = songs.name+".mp3";
+            img.src = songs.name+".jpg";
+        }
+        // loadSong(songs[3]);
+
+        songIndex = 0;
+        const nextSong = () =>{          
+            songIndex = (songIndex+1)%songs.length;
+            loadSong(songs[songIndex]);
+            playMusic();
+        }
+        const prevSong = () =>{          
+            songIndex = (songIndex-1+songs.length)%songs.length;
+            loadSong(songs[songIndex]);
+            playMusic();
+        }
+        next.addEventListener('click',nextSong);
+        prev.addEventListener('click',prevSong);
+
+    </script>
+</body>
+</html>
