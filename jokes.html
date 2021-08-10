@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <title>Document</title>
     <style>
         * {
@@ -13,74 +15,38 @@
         }
 
         body {
-            height: 100vh;
-            background-color: black;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-            overflow: hidden;
-            padding: 20px;
-/*             font-family: cursive; */
             background-color: rgba(8, 8, 70, 0.932);
             background-image: linear-gradient(315deg, #14578d 0%, #380036 74%);
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
         }
 
-        .container {
-            /* background-color: black; */
-/*             background-color: #0cbaba;
-            background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%); */
-
-            /* border-radius: 10px; */
-/*             box-shadow: 0 10px 20px 10px rgba(0, 0, 0, 0.5); */
-            padding: 50px 20px;
-            text-align: center;
-            color: silver;
-            max-width: 100%;
-            width: 800px;
-        }
-
-        h3 {
-            margin: 0;
-            color: rgb(148, 141, 141);
-            letter-spacing: 1px;
-            text-transform: capitalize;
-            font-size: 40px;
-        }
 
         .joke {
-            font-size: 30px;
+            font-size: 20px;
             letter-spacing: 1px;
             line-height: 40px;
             margin: 50px auto;
             max-width: 600px;
         }
-        .btn{
-            background-color: #f8b627;
-            color: #fff;
-            border: 0;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
-            padding: 12px 30px;
-            font-size: 18px;
-            cursor: pointer;
-            outline: none;
-            font-family: cursive;
-            font-weight: bold;
-        }
-        .btn:hover{
-            color: black;
-            background: white;
-        }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <h3>😂😍Best Jokes to make your day👻</h3>
-        <div id="joke" class="joke">Awesome joke is loading....</div>
-        <button id="jokeBtn" class="btn">Next Joke</button>
+    <div class="container mt-5 p-5">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8 mt-5">
+                <h1 class="text-center text-primary">😂😍Best Jokes to make your day👻</h1>
+                <div id="joke" class="joke text-center text-light">Awesome joke is loading....</div>
+                <div class="row justify-content-center">
+                    <div class="col-md-2 text-center">
+                        <!-- <button id="jokeBtn" class="btn">Next Joke</button> -->
+                        <button class="btn btn-outline-primary" id="jokeBtn">Next Joke</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -88,43 +54,26 @@
         //GET https://icanhazdadjoke.com/
         const jokes = document.querySelector('#joke');
         const jokeBtn = document.querySelector('#jokeBtn');
-        //using fetch () API
-
-        // const generateJokes = () =>{
-            // const setHeader = {
-            //     headers: {
-            //         Accept:"application/json"
-            //     }
-            // }
-            // fetch('https://icanhazdadjoke.com',setHeader)
-            // .then((res)=> res.json() )       //converting the data in HTML format to JSON format 
-            // .then((data)=>{
-            //         jokes.innerHTML = data.joke;
-            // }).catch((error)=>{
-            //     console.log(error);
-            // })
-        // }
-
-
+        
         //using async await
-        const generateJokes = async() =>{
-            try{
+        const generateJokes = async () => {
+            try {
                 const setHeader = {
-                headers: {
-                    Accept:"application/json"
+                    headers: {
+                        Accept: "application/json"
+                    }
                 }
-            }
-            const res = await fetch('https://icanhazdadjoke.com',setHeader);
-            const data = await res.json();         //converting HTML data to json format
-            jokes.innerHTML = data.joke;
+                const res = await fetch('https://icanhazdadjoke.com', setHeader);
+                const data = await res.json();         //converting HTML data to json format
+                jokes.innerHTML = data.joke;
 
-            }catch(err){
+            } catch (err) {
                 console.log(`The error is : ${err}`);
-            }       
+            }
         }
 
 
-        jokeBtn.addEventListener('click',generateJokes);
+        jokeBtn.addEventListener('click', generateJokes);
         generateJokes();
     </script>
 </body>
