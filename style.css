@@ -94,6 +94,10 @@ p:hover{
     transition: 2s;
     color: yellow;
 }
+.i{
+    height: 100%;
+    width: 100%;
+}
 .contact{
     background: url("1.jpg") center center no-repeat;
     background-size: cover;
