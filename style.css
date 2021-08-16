@@ -107,6 +107,10 @@ p:hover{
 .contactform{
     background: rgba(94, 34, 134, 0.61);
 }
+.callme{
+    height: 100%;
+    width: 100%;
+}
 
 .footer{
     font-size: 10px;
