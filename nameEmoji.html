@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Which emoji are you</title>
+    <style>
+        @import url('http://fonts.cdnfonts.com/css/courrrier');
+        @import url('http://fonts.cdnfonts.com/css/sesame');
+        @import url('http://fonts.cdnfonts.com/css/nairi');
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgba(8, 8, 70, 0.932);
+            background-image: linear-gradient(315deg, #14578d 0%, #380036 74%);
+            display: grid;
+            place-items: center;
+            color: #fff;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: black;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 10px 20px 10px rgba(0, 0, 0, 0.5);
+            padding: 50px;
+            margin-top: 10px;
+        }
+
+        h1.guess {
+            /* font-family: sans-serif; */
+            font-family: 'Nairi', sans-serif;
+                                                
+            font-weight: lighter;
+        }
+
+        h1#name {
+            font-family: 'Courrrier', sans-serif;
+            font-size: 100px;
+            color: silver;
+        }
+
+        h1#emoji {
+            font-size: 150px;
+        }
+
+        .btns {
+            margin: 20px;
+        }
+
+        button.start {
+            height: 50px;
+            width: 100px;
+            background-color: orange;
+            font-size: 15px;
+            color: black;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        button#stop {
+            border-radius: 10px;
+            height: 50px;
+            width: 100px;
+            background-color: orange;
+            font-size: 15px;
+            color: black;
+            font-weight: bold;
+        }
+
+        h1#name {
+            /* font-family: 'Sesame', sans-serif;
+            font-family: 'Sesame Shadow', sans-serif; */
+            font-family: 'Nairi', sans-serif;
+                                                
+            font-size: 50px;
+            font-weight: lighter;
+        }
+
+        p#p {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <audio src="music.mp3"></audio>
+        <audio src="game_over.wav" id="over"></audio>
+        <p>Let's play THE EMOJI game</p><br>
+        <h1 id="name">Which emoji are you</h1><br>
+        <p id="p">👻 Click 'start' to start the game!</p>
+        <h1 id="emoji">🤹🏽‍♀️</h1><br>
+        <div class="btns">
+            <button class="start">Start🟢</button>
+        </div>
+
+        <script src="confetti.js"></script>
+        <script>
+            let isPlaying = false;
+            const music = document.querySelector('audio');
+            const over = document.getElementById('over');
+            btn = document.querySelector('.start');
+            var i = 0;
+            const emojiLoad = () => {
+                music.play();
+                isPlaying = true;
+                document.getElementById('p').innerHTML = "Click 'stop' to stop the game!";
+                btn = document.querySelector('.start').innerHTML = "Stop🔴";
+                emoji = document.getElementById('emoji');
+                str = ['😎', '😍', '🤨', '😛', '😌', '😁', '😙', '😝', '🙃', '😡', '🤪', '😬', '🤓', '🥺', '😈', '🥳', '😇', '🤣', '😋', '🙄', '😐', '🤗', '🙂', '😪', '🥱', '😒', '😜', '😤', '🤑', '😭', '😬', '🙁', '😳', '🤠', '🧐', '🤫'];
+                timeRef = setInterval(() => {
+                    if (i >= str.length) {
+                        i = 0;
+                    }
+                    emoji.innerHTML = `${str[i]}`;
+                    i++;
+                }, 40)
+            }
+
+            const emojiStop = () => {
+                music.pause();
+                over.play();
+                isPlaying = false;
+                document.getElementById('p').innerHTML = "Click 'start' to start the game!";
+                btn = document.querySelector('.start').innerHTML = "Start🟢";
+                clearInterval(timeRef);
+
+                const start = () => {
+                    setTimeout(function () {
+                        confetti.start();
+                    }, 100)
+                }
+
+                const stop = () => {
+                    setTimeout(function () {
+                        confetti.stop();
+                    }, 5000)
+                }
+                start();
+                stop();
+
+            }
+
+
+
+            btn.addEventListener('click', () => {
+                if (isPlaying) {
+                    emojiStop();
+                } else {
+                    emojiLoad();
+                }
+            });
+
+
+
+        </script>
+
+    </div>
+</body>
+
+</html>
