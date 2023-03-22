@@ -17,6 +17,18 @@ video{
     color: rgb(148, 36, 148);     
     
 }
+.profileLinks{
+    font-size: 20px;
+    text-decoration: none;
+}
+.profileLinks a{
+    text-decoration: none;
+}
+.profileLinks:hover{
+    background-color: skyblue;
+    color: black;
+    font-weight: bold;
+}
 
 p{
     font-size: 18px;
@@ -144,3 +156,5 @@ img {
       background-position: 200% center;
     }
   }
+  
+  
