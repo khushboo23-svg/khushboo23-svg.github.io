@@ -1,0 +1,253 @@
+body {
+    background-image: url('bg.jpg'); 
+    /* background-color: black; */
+    background-size: cover;
+    background-attachment: fixed; 
+    background-position: center;
+    font-family: 'Arial', sans-serif; 
+    margin: 0;
+    padding: 0;
+    color: #fff; 
+}
+.glass-background {
+    background-color: rgba(33, 33, 33, 0.5);
+    backdrop-filter: blur(3px);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+.qualification-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 10px 0;
+    color: silver;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.qualification-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+.qualification-card h2 {
+    color: #ff6f61;
+}
+.qualification-card p {
+    font-size: 18px;
+    color: #ffffff;
+}
+.icon {
+    font-size: 50px;
+    margin-right: 20px;
+    color: #ff6f61;
+}
+.fade-in {
+    animation: fadeIn 2s;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+.loading-screen {
+    position: fixed;
+    background-color: #000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.loading-screen.fade-out {
+    opacity: 0;
+    pointer-events: none; /* Disable interaction when loading */
+}
+
+.loading-spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid #ffffff;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.project-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    color: silver;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(57, 55, 55, 0.2);
+}
+.project-card h3 {
+    color: skyblue;
+}
+.project-card p {
+    font-size: 18px;
+    color: #ffffff;
+}
+.project-card img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+@media (min-width: 768px) {
+    .container-timeline {
+        width: 50%;
+    }
+    .left {
+        left: 0;
+    }
+    .right {
+        left: 50%;
+    }
+}
+@media (max-width: 767.98px) {
+    .timeline::after {
+        content: none;
+    }
+}
+
+/* Animation */
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-card {
+    animation: slide-in 0.5s ease-out;
+    opacity: 0;
+}
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: skyblue;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1.5px;
+}
+.container-timeline {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 100%;
+    box-sizing: border-box;
+}
+.left {
+    left: 0;
+}
+.right {
+    left: 0;
+    margin-top: 20px;
+}
+.content {
+    padding: 20px 30px;
+    background-color: rgba(33, 33, 33, 0.5);
+    position: relative;
+    border-radius: 6px;
+}
+.progress-bar {
+    border-radius: 8px;
+}
+.progress {
+    height: 30px;
+    margin-bottom: 20px;
+    background-color: rgb(10, 10, 39);
+}
+.skill-name {
+    font-size: 18px;
+    margin-top: 10px;
+    color: white;
+}
+.progress-bar-html {
+    background-color: #FF6F61; /* Red */
+}
+.progress-bar-css {
+    background-color: #5BC0DE; /* Blue */
+}
+.progress-bar-javascript {
+    background-color: #F0AD4E; /* Orange */
+}
+.progress-bar-react {
+    background-color: #62C370; /* Green */
+}
+.progress-bar-express {
+    background-color: rgb(172, 43, 172); /* Green */
+}
+.progress-bar-git {
+    background-color: #6CC2BD; /* Turquoise */
+}
+.progress-bar-node {
+    background-color: #B94A48; /* Maroon */
+}
+@media (min-width: 768px) {
+    .container-timeline {
+        width: 50%;
+    }
+    .left {
+        left: 0;
+    }
+    .right {
+        left: 50%;
+    }
+}
+@media (max-width: 767.98px) {
+    .timeline::after {
+        content: none;
+    }
+}
+
+.icons img{
+    border: 2px solid grey;
+    border-radius: 10px;
+    background-color: skyblue;
+}
+.icons img:hover{
+    border: 2px solid silver;
+    border-radius: 10px;
+    background-color: pink;
+}
+
+.container-fluid {
+     
+}
+
+.row {
+    
+}
+
