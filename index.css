@@ -239,7 +239,10 @@ body {
     background-color: skyblue;
 }
 .icons img:hover{
-    border: 2px solid silver;
+    border: 2px solid white;
     border-radius: 10px;
-    background-color: pink;
+    background-color: white;
 }
+
+
+
