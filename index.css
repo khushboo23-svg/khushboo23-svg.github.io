@@ -8,6 +8,7 @@ body {
     margin: 0;
     padding: 0;
     color: #fff; 
+    overflow-x: hidden;
 }
 .glass-background {
     background-color: rgba(33, 33, 33, 0.5);
@@ -242,12 +243,3 @@ body {
     border-radius: 10px;
     background-color: pink;
 }
-
-.container-fluid {
-     
-}
-
-.row {
-    
-}
-
